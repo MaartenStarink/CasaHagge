@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Boek Casa Hagge – selecteer uw aankomst- en vertrekdatum en reserveer uw verblijf in ons vakantiehuis in Dalarna, Zweden.">
+  <title>Boeken – Casa Hagge</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<nav class="nav" id="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">Casa <span>Hagge</span></a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="fotos.html">Foto's</a></li>
+      <li>
+        <a href="#">Activiteiten <span class="chevron"></span></a>
+        <div class="nav-dropdown">
+          <a href="fietsen.html">Fietsen</a>
+          <a href="wandelen.html">Wandelen</a>
+          <a href="watersport.html">Watersport</a>
+          <a href="golf.html">Golf</a>
+          <a href="fotografie.html">Fotografie</a>
+        </div>
+      </li>
+      <li>
+        <a href="#">Omgeving <span class="chevron"></span></a>
+        <div class="nav-dropdown">
+          <a href="badplaatsen.html">Badplaatsen</a>
+          <a href="dagtrips.html">Dagtrips</a>
+          <a href="steden-en-dorpen.html">Steden en dorpen</a>
+        </div>
+      </li>
+      <li><a href="boeken.html" class="btn-book active">Boeken</a></li>
+    </ul>
+    <button class="nav-hamburger" id="hamburger" aria-label="Menu openen">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+<div class="nav-mobile" id="mobileNav">
+  <a href="index.html">Home</a>
+  <a href="fotos.html">Foto's</a>
+  <div class="mobile-section-title">Activiteiten</div>
+  <div class="mobile-sub">
+    <a href="fietsen.html">Fietsen</a>
+    <a href="wandelen.html">Wandelen</a>
+    <a href="watersport.html">Watersport</a>
+    <a href="golf.html">Golf</a>
+    <a href="fotografie.html">Fotografie</a>
+  </div>
+  <div class="mobile-section-title">Omgeving</div>
+  <div class="mobile-sub">
+    <a href="badplaatsen.html">Badplaatsen</a>
+    <a href="dagtrips.html">Dagtrips</a>
+    <a href="steden-en-dorpen.html">Steden en dorpen</a>
+  </div>
+  <a href="boeken.html">Boeken</a>
+</div>
+
+<div class="page-hero">
+  <div class="page-hero-inner">
+    <span class="eyebrow">Reserveren</span>
+    <h1>Boek Casa Hagge</h1>
+    <p>Selecteer uw aankomst- en vertrekdatum, vul uw gegevens in en ga direct door naar betalen.</p>
+  </div>
+</div>
+
+<!-- ── Booking Section ─────────────────────────────────── -->
+<section class="section">
+  <div class="container">
+
+    <!-- Stappen-indicator -->
+    <div style="display:flex; align-items:center; justify-content:center; gap:8px; margin-bottom:48px; flex-wrap:wrap;">
+      <div style="display:flex; align-items:center; gap:8px;">
+        <div id="step1Ind" style="display:flex; align-items:center; gap:8px; font-size:.85rem; font-weight:600; color:var(--wood);">
+          <span style="width:28px; height:28px; border-radius:50%; background:var(--wood); color:#fff; display:flex; align-items:center; justify-content:center; font-size:.8rem; font-weight:700;">1</span>
+          Selecteer datum
+        </div>
+        <span style="width:40px; height:2px; background:var(--border); border-radius:2px;"></span>
+        <div id="step2Ind" style="display:flex; align-items:center; gap:8px; font-size:.85rem; font-weight:600; color:var(--text-muted);">
+          <span id="step2Num" style="width:28px; height:28px; border-radius:50%; background:var(--border); color:var(--text-muted); display:flex; align-items:center; justify-content:center; font-size:.8rem; font-weight:700;">2</span>
+          Uw gegevens
+        </div>
+        <span style="width:40px; height:2px; background:var(--border); border-radius:2px;"></span>
+        <div id="step3Ind" style="display:flex; align-items:center; gap:8px; font-size:.85rem; font-weight:600; color:var(--text-muted);">
+          <span id="step3Num" style="width:28px; height:28px; border-radius:50%; background:var(--border); color:var(--text-muted); display:flex; align-items:center; justify-content:center; font-size:.8rem; font-weight:700;">3</span>
+          Betalen
+        </div>
+      </div>
+    </div>
+
+    <div class="booking-layout">
+
+      <!-- Kalender (stap 1) -->
+      <div>
+        <div class="calendar-section">
+          <div class="calendar-nav">
+            <button class="cal-btn" id="calPrev" aria-label="Vorige maand">&#8592;</button>
+            <h3 id="calMonth"></h3>
+            <button class="cal-btn" id="calNext" aria-label="Volgende maand">&#8594;</button>
+          </div>
+
+          <div class="calendar-days-header">
+            <span>Ma</span><span>Di</span><span>Wo</span>
+            <span>Do</span><span>Vr</span><span>Za</span><span>Zo</span>
+          </div>
+          <div class="calendar-grid" id="calGrid"></div>
+
+          <p class="calendar-hint">
+            Klik eerst op uw <strong>aankomstdatum</strong>, klik daarna op uw <strong>vertrekdatum</strong>.
+          </p>
+        </div>
+      </div>
+
+      <!-- Stap 2 + 3 sidebar -->
+      <div class="booking-form-section">
+        <h3>Uw boeking</h3>
+
+        <div class="booking-summary">
+          <div class="booking-summary-title">Geselecteerde periode</div>
+          <div class="booking-dates" id="bookingDates">Selecteer eerst een aankomstdatum op de kalender</div>
+        </div>
+
+        <!-- Stap 2: Gegevens (verborgen tot beide datums gekozen) -->
+        <div id="contactForm" style="display:none;">
+          <p style="font-size:.8rem; font-weight:600; color:var(--wood); margin-bottom:14px; text-transform:uppercase; letter-spacing:.05em;">Stap 2 &mdash; Uw gegevens</p>
+          <form id="guestForm" novalidate>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="firstName">Voornaam <span style="color:var(--wood)">*</span></label>
+                <input type="text" id="firstName" name="firstName" placeholder="Jan" required>
+              </div>
+              <div class="form-group">
+                <label for="lastName">Achternaam <span style="color:var(--wood)">*</span></label>
+                <input type="text" id="lastName" name="lastName" placeholder="de Vries" required>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="email">E-mailadres <span style="color:var(--wood)">*</span></label>
+              <input type="email" id="email" name="email" placeholder="jan@voorbeeld.nl" required>
+            </div>
+            <div class="form-group">
+              <label for="phone">Telefoonnummer <span class="opt">(optioneel)</span></label>
+              <input type="tel" id="phone" name="phone" placeholder="+31 6 12 34 56 78">
+            </div>
+          </form>
+
+          <button class="btn btn-primary" id="submitBooking" style="width:100%; justify-content:center; margin-top:16px;">
+            Verder naar betalen &#8594;
+          </button>
+        </div>
+
+        <!-- Stap 3: Betalen (verborgen tot formulier ingevuld) -->
+        <div id="payStep" style="display:none; margin-top:24px; padding:20px; background:var(--forest-pale); border-radius:var(--radius-lg); border:1px solid var(--forest-light);">
+          <p style="font-size:.8rem; font-weight:600; color:var(--forest); margin-bottom:14px; text-transform:uppercase; letter-spacing:.05em;">Stap 3 &mdash; Betalen</p>
+          <p id="payConfirmText" style="font-size:.875rem; color:var(--text-muted); margin-bottom:16px; line-height:1.6;"></p>
+          <a id="payBtn" href="VERVANG_MET_UW_BETAALLINK" target="_blank"
+             style="display:flex; align-items:center; justify-content:center; gap:8px;
+                    background:var(--forest); color:#fff; border-radius:8px; padding:14px 24px;
+                    font-weight:600; font-size:.95rem; text-decoration:none;">
+            Betaal veilig &#8594;
+          </a>
+          <p style="font-size:.73rem; color:var(--text-muted); margin-top:10px; text-align:center;">
+            U wordt doorgestuurd naar een beveiligde betaalpagina.
+          </p>
+        </div>
+
+        <!-- Nog geen datum -->
+        <div id="noDatesMsg" style="text-align:center; padding: 24px 0; color:var(--text-muted); font-size:.9rem;">
+          <div style="font-size:2rem; margin-bottom:12px;">&#128197;</div>
+          Selecteer op de kalender uw aankomst- en vertrekdatum om door te gaan.
+        </div>
+
+        <!-- Contact alternatief -->
+        <div style="border-top: 1px solid var(--border); margin-top: 24px; padding-top: 20px; text-align:center;">
+          <p style="font-size:.82rem; color:var(--text-muted); margin-bottom:8px;">Liever direct bellen?</p>
+          <a href="tel:+31633341920" style="font-weight:600; color:var(--wood); font-size:.95rem;">+31 6 333 41 920</a>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ── Huisregels ──────────────────────────────────────── -->
+<section class="section">
+  <div class="container" style="max-width: 760px;">
+    <div class="section-header">
+      <span class="eyebrow">Praktisch</span>
+      <h2>Huisregels &amp; informatie</h2>
+    </div>
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 24px;">
+      <div style="background:var(--white); border:1px solid var(--border); border-radius:var(--radius-lg); padding:24px;">
+        <h3 style="font-family:var(--font-heading); font-size:1rem; margin-bottom:12px; color:var(--text);">Aankomst &amp; vertrek</h3>
+        <ul style="list-style:none; font-size:.875rem; color:var(--text-muted);">
+          <li style="padding:4px 0;">✓ Inchecken: vanaf 15:00 uur</li>
+          <li style="padding:4px 0;">✓ Uitchecken: voor 11:00 uur</li>
+          <li style="padding:4px 0;">✓ Minimale verblijfsduur: 3 nachten</li>
+          <li style="padding:4px 0;">✓ Sleuteloverdracht in overleg</li>
+        </ul>
+      </div>
+      <div style="background:var(--white); border:1px solid var(--border); border-radius:var(--radius-lg); padding:24px;">
+        <h3 style="font-family:var(--font-heading); font-size:1rem; margin-bottom:12px; color:var(--text);">Inbegrepen</h3>
+        <ul style="list-style:none; font-size:.875rem; color:var(--text-muted);">
+          <li style="padding:4px 0;">✓ Beddengoed &amp; handdoeken</li>
+          <li style="padding:4px 0;">✓ Gebruik van de kano</li>
+          <li style="padding:4px 0;">✓ WiFi &amp; BBQ</li>
+          <li style="padding:4px 0;">✓ Fietsroutes op papier</li>
+        </ul>
+      </div>
+      <div style="background:var(--white); border:1px solid var(--border); border-radius:var(--radius-lg); padding:24px;">
+        <h3 style="font-family:var(--font-heading); font-size:1rem; margin-bottom:12px; color:var(--text);">Huisdieren &amp; roken</h3>
+        <ul style="list-style:none; font-size:.875rem; color:var(--text-muted);">
+          <li style="padding:4px 0;">✓ Huisdieren in overleg welkom</li>
+          <li style="padding:4px 0;">✗ Roken binnenshuis niet toegestaan</li>
+          <li style="padding:4px 0;">✓ Roken op de veranda toegestaan</li>
+        </ul>
+      </div>
+      <div style="background:var(--white); border:1px solid var(--border); border-radius:var(--radius-lg); padding:24px;">
+        <h3 style="font-family:var(--font-heading); font-size:1rem; margin-bottom:12px; color:var(--text);">Capaciteit</h3>
+        <ul style="list-style:none; font-size:.875rem; color:var(--text-muted);">
+          <li style="padding:4px 0;">✓ Maximaal 6 personen</li>
+          <li style="padding:4px 0;">✓ 1 ouderslaapkamer</li>
+          <li style="padding:4px 0;">✓ 2 kamers met stapelbedden</li>
+          <li style="padding:4px 0;">✓ 1 badkamer + toilet</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="contact-bar">
+  <div class="container">
+    <p>Vragen of meer informatie? <a href="tel:+31633341920">Neem contact met ons op</a> &mdash; <strong><a href="tel:+31633341920">+31 6 333 41 920</a></strong></p>
+  </div>
+</div>
+
+<footer class="footer">
+  <div class="footer-inner">
+    <div>
+      <div class="footer-brand">Casa Hagge</div>
+      <div class="footer-tagline">Vakantiehuis in Dalarna, Zweden</div>
+      <div class="footer-address">
+        Klubbvägen 8<br>771 90 Ludvika<br>Zweden<br><br>
+        <a href="tel:+31633341920" style="color:rgba(255,255,255,.55)">+31 6 333 41 920</a>
+      </div>
+    </div>
+    <div class="footer-links">
+      <a href="index.html">Home</a>
+      <a href="fotos.html">Foto's</a>
+      <a href="fietsen.html">Fietsen</a>
+      <a href="wandelen.html">Wandelen</a>
+      <a href="watersport.html">Watersport</a>
+      <a href="golf.html">Golf &amp; Padel</a>
+      <a href="fotografie.html">Fotografie</a>
+      <a href="badplaatsen.html">Badplaatsen</a>
+      <a href="dagtrips.html">Dagtrips</a>
+      <a href="steden-en-dorpen.html">Steden en dorpen</a>
+      <a href="boeken.html">Boeken</a>
+    </div>
+  </div>
+  <div class="footer-bottom">&copy; 2025 Casa Hagge &mdash; Vakantiehuis Dalarna, Zweden</div>
+</footer>
+
+<script src="main.js"></script>
+
+<script>
+  // ── Stappen-logica boekingspagina ───────────────────────
+  const contactForm = document.getElementById('contactForm');
+  const noDatesMsg  = document.getElementById('noDatesMsg');
+  const payStep     = document.getElementById('payStep');
+  const datesEl     = document.getElementById('bookingDates');
+  const step2Num    = document.getElementById('step2Num');
+  const step2Ind    = document.getElementById('step2Ind');
+  const step3Num    = document.getElementById('step3Num');
+  const step3Ind    = document.getElementById('step3Ind');
+
+  function activateStep(num) {
+    if (num >= 2 && step2Num) {
+      step2Num.style.background = 'var(--wood)';
+      step2Num.style.color = '#fff';
+      step2Ind.style.color = 'var(--wood)';
+    }
+    if (num >= 3 && step3Num) {
+      step3Num.style.background = 'var(--forest)';
+      step3Num.style.color = '#fff';
+      step3Ind.style.color = 'var(--forest)';
+    }
+  }
+
+  // Observeer de datumtekst: toon stap 2 zodra beide datums gekozen zijn
+  document.addEventListener('DOMContentLoaded', () => {
+    const observer = new MutationObserver(() => {
+      if (datesEl && datesEl.classList.contains('set')) {
+        contactForm.style.display = 'block';
+        noDatesMsg.style.display  = 'none';
+        activateStep(2);
+      } else {
+        contactForm.style.display = 'none';
+        noDatesMsg.style.display  = 'block';
+        if (payStep) payStep.style.display = 'none';
+      }
+    });
+    if (datesEl) observer.observe(datesEl, { attributes: true, childList: true, characterData: true, subtree: true });
+
+    // Knop "Verder naar betalen"
+    const submitBtn = document.getElementById('submitBooking');
+    if (submitBtn) {
+      submitBtn.addEventListener('click', e => {
+        e.preventDefault();
+        const form   = document.getElementById('guestForm');
+        const fields = form.querySelectorAll('input[required]');
+        let valid = true;
+        fields.forEach(f => {
+          if (!f.value.trim()) { f.style.borderColor = '#C0392B'; valid = false; }
+          else                 { f.style.borderColor = ''; }
+        });
+        if (!valid) return;
+
+        // Bevestigingstekst samenstellen
+        const firstName = document.getElementById('firstName').value.trim();
+        const confText  = document.getElementById('payConfirmText');
+        if (confText) {
+          confText.textContent = 'Beste ' + firstName + ', uw gegevens zijn ontvangen. Klik hieronder om uw boeking definitief te maken via een beveiligde betaalpagina.';
+        }
+
+        // Stap 3 tonen
+        if (payStep) payStep.style.display = 'block';
+        activateStep(3);
+        submitBtn.style.display = 'none';
+        payStep.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+      });
+    }
+  });
+</script>
+</body>
+</html>
